@@ -1,6 +1,9 @@
-package xyz.dzh.myTomcat;
+package xyz.dzh.myTomcat.servlet;
 
 import java.io.IOException;
+
+import xyz.dzh.myTomcat.MyRequest;
+import xyz.dzh.myTomcat.MyResponse;
 
 /**
  * @author dongzhonghua <dongzhonghua03@kuaishou.com>
