@@ -16,6 +16,10 @@
     </parent>
 
     <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+        </dependency>
         <!-- lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -61,8 +65,6 @@
         </dependency>
 
     </dependencies>
-
-
     <build>
         <plugins>
             <plugin>

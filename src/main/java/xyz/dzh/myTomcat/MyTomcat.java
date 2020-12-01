@@ -67,9 +67,10 @@ public class MyTomcat {
     }
 
     private void initServletMapping() {
-        for (ServletMapping servletMapping : ServletMappingConfig.getServletMappingList()) {
-            urlServletMap.put(servletMapping.getUrl(), servletMapping.getClazz());
-        }
+        // for (ServletMapping servletMapping : ServletMappingConfig.getServletMappingList()) {
+        //     urlServletMap.put(servletMapping.getUrl(), servletMapping.getClazz());
+        // }
+        urlServletMap = ServletMappingConfig.getAllServlet();
     }
 
     @SuppressWarnings("checkstyle:MagicNumber")
