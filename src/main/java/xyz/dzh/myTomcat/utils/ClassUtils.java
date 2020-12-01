@@ -68,7 +68,7 @@ public class ClassUtils {
      * 从项目文件获取某包下所有类
      *
      * @param filePath 文件路径
-     * @param className 类名集合
+     * @param packageName 类名集合
      * @param isRecursion 是否遍历子包
      * @return 类的完整名称
      */
