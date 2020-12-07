@@ -1,6 +1,6 @@
-package xyz.dzh.myTomcat;
+package xyz.dsvshx.myTomcat;
 
-import static xyz.dzh.myTomcat.utils.ClassUtils.getClassName;
+import static xyz.dsvshx.myTomcat.utils.ClassUtils.getClassName;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import xyz.dzh.myTomcat.annotation.RequestMapping;
+import xyz.dsvshx.myTomcat.annotation.RequestMapping;
 
 /**
  * @author dongzhonghua <dongzhonghua03@kuaishou.com>
@@ -18,8 +18,8 @@ public class ServletMappingConfig {
     private static List<ServletMapping> servletMappingList = new ArrayList<>();
 
     static {
-        servletMappingList.add(new ServletMapping("findGirl", "/girl", "xyz.dzh.myTomcat.servlet.FindGirlServlet"));
-        servletMappingList.add(new ServletMapping("helloWord", "/world", "xyz.dzh.myTomcat.servlet.HelloWorldServlet"));
+        servletMappingList.add(new ServletMapping("findGirl", "/girl", "FindGirlServlet"));
+        servletMappingList.add(new ServletMapping("helloWord", "/world", "HelloWorldServlet"));
 
     }
 
