@@ -8,7 +8,7 @@ import java.lang.reflect.Proxy;
  * @author dongzhonghua
  * Created on 2020-12-07
  */
-public class ProxyBeanFactory {
+public class ProxyBeanFactoryJDK {
 
     /**
      * 获得代理类

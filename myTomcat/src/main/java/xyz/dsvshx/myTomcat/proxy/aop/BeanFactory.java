@@ -1,17 +1,16 @@
 package xyz.dsvshx.myTomcat.proxy.aop;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import xyz.dsvshx.myTomcat.proxy.BookFacade;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author dongzhonghua
  * Created on 2020-12-07
  */
+@Slf4j
 public class BeanFactory {
     private Properties properties = new Properties();
 
@@ -21,7 +20,7 @@ public class BeanFactory {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("资源加载完成.");
+        log.info("资源加载完成.");
     }
 
     public Object getBean(String name) {
@@ -29,11 +28,11 @@ public class BeanFactory {
         try {
             //实例化类
             bean = Class.forName(properties.getProperty(name)).newInstance();
-            System.out.println(bean.getClass().getInterfaces()[0]);
+            log.info(String.valueOf(bean.getClass().getInterfaces()[0]));
             String targetClass = properties.getProperty(name + ".target");
             Object target = Class.forName(targetClass).newInstance();
             Advice advice = (Advice) Class.forName(properties.getProperty(name + ".advice")).newInstance();
-            bean = ProxyBeanFactory.getProxy(target, advice);
+            bean = ProxyBeanFactoryCglib.getProxy(target, advice);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -45,19 +44,14 @@ public class BeanFactory {
         try {
             //实例化类
             bean = Class.forName(properties.getProperty(name)).newInstance();
-            System.out.println("---" + bean.getClass());
+            log.info("---" + bean.getClass());
             String targetClass = properties.getProperty(name + ".target");
             Object target = Class.forName(targetClass).newInstance();
             Advice advice = (Advice) Class.forName(properties.getProperty(name + ".advice")).newInstance();
-            bean = ProxyBeanFactory.getProxy(target, advice);
+            bean = ProxyBeanFactoryJDK.getProxy(target, advice);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return (T) bean;
     }
-
-    public static void main(String[] args) throws FileNotFoundException {
-        BookFacade asdf = new BeanFactory(new FileInputStream("")).getBeanInterface("asdf");
-    }
-
 }

@@ -29,7 +29,7 @@ public class ServletMappingConfig {
 
     public static Map<String, String> getAllServlet() {
         Map<String, String> map = new HashMap<>();
-        String packageName = "xyz.dzh.myTomcat.servlet";
+        String packageName = "xyz.dsvshx.myTomcat.servlet";
         Set<String> classNames = getClassName(packageName, true);
         for (String className : classNames) {
             Class<?> clazz = null;
@@ -38,7 +38,10 @@ public class ServletMappingConfig {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
-            RequestMapping annotation = clazz.getAnnotation(RequestMapping.class);
+            RequestMapping annotation = null;
+            if (clazz != null) {
+                annotation = clazz.getAnnotation(RequestMapping.class);
+            }
             if (annotation != null) {
                 map.put("/" + annotation.value(), className);
             }

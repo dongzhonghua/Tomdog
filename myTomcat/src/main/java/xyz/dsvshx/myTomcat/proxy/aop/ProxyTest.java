@@ -1,23 +1,22 @@
 package xyz.dsvshx.myTomcat.proxy.aop;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-import xyz.dsvshx.myTomcat.proxy.BookFacade;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author dongzhonghua
  * Created on 2020-12-07
  */
+@Slf4j
 public class ProxyTest {
     public static void main(String[] args) throws FileNotFoundException {
-        InputStream ips = new FileInputStream(
-                new File("/Users/dzh/Documents/kuai/github/Tomdog/myTomcat/src/main/resources/proxy.properties"));
-        Object xxx = new BeanFactory(ips).getBean("xxx");
-        BookFacade bean = (BookFacade) new BeanFactory(ips).getBean("xxx");
-        bean.addBook();
-        System.out.println(bean.getClass().getName());
+        InputStream ips = ProxyTest.class.getClassLoader().getResourceAsStream("proxy.properties");
+        BeanFactory beanFactory = new BeanFactory(ips);
+        Object xxx = beanFactory.getBean("xxx");
+        Greeting bean = (Greeting) beanFactory.getBean("xxx");
+        bean.sayHello();
+        log.info(bean.getClass().getName());
     }
 }
