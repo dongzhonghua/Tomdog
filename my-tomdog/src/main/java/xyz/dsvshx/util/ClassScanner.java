@@ -8,7 +8,7 @@ import java.util.List;
  * Created on 2021-01-31
  */
 public interface ClassScanner {
-
+    // 实现一个功能，先抽象出一个接口，黄勇写得那一系列博客就有这种风格，最前面的一定是定义一个接口。
     /**
      * 获取指定包名中的所有类
      */
