@@ -33,3 +33,9 @@
 这个子项目用来测试spring相关的功能，有许多spring的功能需要一些例子来参考。
 
 系列地址：
+
+## thinking
+
+servlet相关的部分是不是可以用netty来实现一个呢，利用netty解析请求，然后自己做一个servlet。我觉得这个可以！
+
+https://github.com/pyloque/httpkids
