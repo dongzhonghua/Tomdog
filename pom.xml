@@ -13,13 +13,6 @@
         <module>my-tomcat</module>
     </modules>
 
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.4.RELEASE</version>
-    </parent>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -34,18 +27,8 @@
                 <version>1.18.16</version>
             </dependency>
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-data-redis</artifactId>
-            </dependency>
-            <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-pool2</artifactId>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-test</artifactId>
-                <scope>test</scope>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
             <dependency>
@@ -59,10 +42,6 @@
                 <artifactId>commons-lang3</artifactId>
                 <version>3.8.1</version>
                 <scope>compile</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-test</artifactId>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
             <dependency>
