@@ -1,5 +1,6 @@
 package xyz.dsvshx.springexample.aspect;
 
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -20,7 +21,7 @@ public class LogAspect {
      * <p>
      * 多个表达式之间使用连接符匹配多个条件， 如使用||表示“或”，使用 &&表示“且”
      */
-    @Pointcut("@annotation(xyz.dsvshx.springexample.annotation.LogAop) &&" +
+    @Pointcut("@annotation(xyz.dsvshx.springexample.annotation.LogAop) ||" +
             "execution(public * xyz.dsvshx.springexample.service.impl.AopTestServiceImpl.get*(..))")
     public void log() {
 
@@ -35,7 +36,7 @@ public class LogAspect {
     }
 
     @Order(2)
-    @Before("log()")
+    @After("log()")
     public void beforeLog2() {
         System.out.println("后执行，增加log()方法...");
     }

@@ -16,7 +16,7 @@ public class AopTestServiceImpl implements AopTestService {
     public void getStudentInfo() {
         System.out.println("调用业务处理中的get()方法...");
     }
-
+    @LogAop
     @Override
     public void update() {
         System.out.println("调用业务处理中的update()方法...");
